@@ -1,3 +1,1 @@
-﻿  main.cpp
-  ProjetLex.vcxproj -> C:\Users\utilisateur\Desktop\LOG2810_TP2\ProjetLex\Debug\ProjetLex.exe
-  ProjetLex.vcxproj -> C:\Users\utilisateur\Desktop\LOG2810_TP2\ProjetLex\Debug\ProjetLex.pdb (Partial PDB)
+﻿LINK : fatal error LNK1168: impossible d'ouvrir C:\Users\utilisateur\Desktop\log2810\ProjetLex\Debug\ProjetLex.exe pour écrire

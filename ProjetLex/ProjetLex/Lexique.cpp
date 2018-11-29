@@ -2,11 +2,14 @@
 
 Lexique::Lexique() 
 {
+	compteur = 0;
 }
 
 Lexique::~Lexique() 
 {
 	listeCaractere.clear();   // on vide notre lexique
+	resultatRecherche.clear();
+	compteur = 0;
 }
 
 
@@ -29,7 +32,7 @@ void Lexique::creerLexique(string nomFichier)
 			}
 			else
 			{
-				for (int i = 0; i < listeCaractere.size(); i++)
+				for (unsigned i = 0; i < listeCaractere.size(); i++)
 				{
 					if (ligne[0] == listeCaractere[i].getCaractereDedepart())
 					{
@@ -58,6 +61,11 @@ void Lexique::creerLexique(string nomFichier)
 	
 }
 
+vector<Mot> Lexique::getResultatRecherhce()
+{
+	return resultatRecherche;
+}
+
 vector<Caractere> Lexique::getlisteCaractere()
 {
 	return listeCaractere;
@@ -66,7 +74,7 @@ vector<Caractere> Lexique::getlisteCaractere()
 void Lexique::afficherMot(vector<Mot> liste) 
 {
 	
-	for (int i = 0; i < liste.size(); i++)
+	for (unsigned i = 0; i < liste.size(); i++)
 	{
 		if (liste[i].getMot() != " ")
 		{
@@ -75,45 +83,36 @@ void Lexique::afficherMot(vector<Mot> liste)
 	}
 }
 
-void Lexique:: cherherMot(string mot)
+void Lexique::cherherMot(char caractere)
 {
-	
-	if (mot.size() == 1)
+
+	if (resultatRecherche.size() == 0)
 	{
-		for (int i = 0; i < listeCaractere.size() ; i++)
+		for (unsigned i = 0; i < listeCaractere.size(); i++)
 		{
-			if (mot[0] == listeCaractere[i].getCaractereDedepart())
+			if (caractere == listeCaractere[i].getCaractereDedepart())
 			{
-				for (int j = 0; j < listeCaractere[i].getTableauDemot().size(); j++)             /// cette partie a revoir 
-				{
-					cout << listeCaractere[i].getTableauDemot()[j].getMot();
-				}
+				resultatRecherche = listeCaractere[i].getTableauDemot();
+				break;                        // on prend le tableau de mot correspondant 
 			}
 		}
+		afficherMot(resultatRecherche);
+		compteur++;
 	}
 	else
 	{
-		vector<Mot> TableauMotTemp;  // contient les mots en fonctions du caractere de départ 
-		for (int i = 0; i < listeCaractere.size(); i++)
-		{
-			if (mot[0] == listeCaractere[i].getCaractereDedepart())
-			{
-				TableauMotTemp = listeCaractere[i].getTableauDemot();
-				break;
-			}
-		}
 
-		for (int k = 1; k < mot.size(); k++)
+		for (unsigned i = 0; i < resultatRecherche.size(); i++)
 		{
-			for (int i = 0; i < TableauMotTemp.size(); i++)
-			{
-				if (TableauMotTemp[i].getMot()[k] != mot[k])
+			if (compteur < resultatRecherche[i].getMot().size()) {
+				if (caractere != resultatRecherche[i].getMot()[compteur])
 				{
-					TableauMotTemp[i].setMot(" ");
+					resultatRecherche[i].setMot(" ");
 				}
 			}
 		}
-		
-		afficherMot(TableauMotTemp);
+		afficherMot(resultatRecherche);
+		compteur++;
 	}
+
 }
