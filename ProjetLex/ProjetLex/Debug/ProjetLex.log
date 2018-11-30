@@ -1,1 +1,4 @@
-﻿LINK : fatal error LNK1168: impossible d'ouvrir C:\Users\utilisateur\Desktop\log2810\ProjetLex\Debug\ProjetLex.exe pour écrire
+﻿  Lexique.cpp
+c:\users\utilisateur\desktop\log2810\projetlex\projetlex\lexique.cpp(107): warning C4018: '<' : incompatibilité signed/unsigned
+  ProjetLex.vcxproj -> C:\Users\utilisateur\Desktop\log2810\ProjetLex\Debug\ProjetLex.exe
+  ProjetLex.vcxproj -> C:\Users\utilisateur\Desktop\log2810\ProjetLex\Debug\ProjetLex.pdb (Partial PDB)

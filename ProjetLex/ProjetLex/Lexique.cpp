@@ -110,9 +110,16 @@ void Lexique::cherherMot(char caractere)
 					resultatRecherche[i].setMot(" ");
 				}
 			}
+			else {
+				resultatRecherche[i].setMot(" ");
+			}
 		}
 		afficherMot(resultatRecherche);
 		compteur++;
 	}
-
+	if (caractere == '\r')
+	{
+		this->resultatRecherche.clear();
+		compteur = 0;
+	}
 }

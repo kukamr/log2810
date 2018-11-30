@@ -8,12 +8,13 @@ int main()
 {
 	Lexique lexique;
 	string nomFichier;
-	char car = ' ';
+	char car;
 	int a = 0; // test
 	char selection;
 	bool lexiqueCreer = false;
 	string recherche = "Entrez le mot recherche: ";
-	string motlu = " ";
+	string motlu;
+	bool fin = false;
 	do
 	{
 		cout << "  Bienvenue sur l'interface de recherche\n";
@@ -36,15 +37,23 @@ int main()
 			cin.ignore();
 			getline(cin, nomFichier);
 			lexique.creerLexique(nomFichier);
-			cout << "Le lexique a ete creer avec succes\n";
+			cout << "Le lexique a ete creer avec succes\n" << endl;
 			lexiqueCreer = true;
 			break;
 
 		case '2':
-			cout << "Entrez le mot recherche: ";
+			cout << recherche;
+			car = ' ';
+			motlu = "";
 			car = _getch();
-			while (car != '\r')
-			{
+			if (car == '\0') {
+				car = _getch();
+			}
+			for (;;)
+			{	
+				if (car == '\r'){
+					lexique.cherherMot(car);
+					break;}
 				motlu += car;
 				cout << recherche + motlu << endl;
 				cout << endl;
@@ -54,7 +63,8 @@ int main()
 				car =_getch();
 			}
 			
-			cout << "résultat de recherche: " + motlu << endl;
+			cout << "resultat de recherche: " + motlu << endl << endl;
+			
 			break;
 
 		case '3':
