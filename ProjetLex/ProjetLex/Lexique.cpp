@@ -109,6 +109,11 @@ void Lexique::cherherMot(char caractere)
 				{
 					resultatRecherche[i].setMot(" ");
 				}
+				else if (compteur+1 == resultatRecherche[i].getMot().size())
+				{
+					if (caractere == resultatRecherche[i].getMot()[compteur])
+						resultatRecherche[i].setMot(" ");
+				}
 			}
 			else {
 				resultatRecherche[i].setMot(" ");
@@ -119,6 +124,7 @@ void Lexique::cherherMot(char caractere)
 	}
 	if (caractere == '\r')
 	{
+		//this->resultatRecherche[i].motUtilisé();
 		this->resultatRecherche.clear();
 		compteur = 0;
 	}

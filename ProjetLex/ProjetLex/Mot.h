@@ -17,6 +17,7 @@ public:
 
 	// setteurs
 	void setNombreFoisUtilisé(int nombre);  // on en a besoin ??
+	void Mot::motUtilisé();
 	void  setRecementUtilisé(bool valeur);
 	void setMot(string mot);
 

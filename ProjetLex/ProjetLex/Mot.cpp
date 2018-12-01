@@ -20,6 +20,11 @@ void Mot::setNombreFoisUtilisé(int nombre)
 	nombreFoisUtilisé = nombre;
 }
 
+void Mot::motUtilisé()
+{
+	++nombreFoisUtilisé;
+}
+
 void Mot::setRecementUtilisé(bool valeur) 
 {
 	recementUtilisé = valeur;

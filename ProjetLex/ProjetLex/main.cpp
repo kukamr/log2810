@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+	Mot mot;
 	Lexique lexique;
 	string nomFichier;
 	char car;
@@ -42,9 +43,10 @@ int main()
 			break;
 
 		case '2':
-			cout << recherche;
+			
 			car = ' ';
 			motlu = "";
+			cout << recherche;
 			car = _getch();
 			if (car == '\0') {
 				car = _getch();
@@ -53,12 +55,14 @@ int main()
 			{	
 				if (car == '\r'){
 					lexique.cherherMot(car);
-					break;}
+					break;
+				}
 				motlu += car;
 				cout << recherche + motlu << endl;
 				cout << endl;
 				lexique.cherherMot(car);
 				cout << "--------------------------" << endl;
+				//cout << recherche + motlu;
 				_getch();
 				car =_getch();
 			}
@@ -68,7 +72,7 @@ int main()
 			break;
 
 		case '3':
-
+			mot.AfficherlabelsMots();
 			break;
 
 		case '4':
